@@ -1,0 +1,134 @@
+"use client";
+
+import { sendMessage } from "@/lib/actions/chat-bot.action";
+import { formatTimestamp } from "@/lib/utils";
+import {
+  setGroupedChatByDate,
+  setLoadingSendQuestion,
+} from "@/store/slices/chat-bot.slice";
+import { AppDispatch, RootState } from "@/store/store";
+import { Box, IconButton, Textarea } from "@chakra-ui/react";
+import { useSession } from "next-auth/react";
+import { useRef, useState } from "react";
+import { IoArrowUp } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
+import ClearChat from "./ClearChat";
+import VoiceButton from "../shared/VoiceButton";
+import { delay } from "lodash";
+import { toast } from "sonner";
+
+const ChatComposer = () => {
+  const { loadingSendQuestion, groupedChatByDate } = useSelector(
+    (state: RootState) => state.chatBot
+  );
+  const [prompt, setPrompt] = useState("");
+  const { data: session } = useSession();
+  const dispatch: AppDispatch = useDispatch();
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  const handlSendQuestion = async (prompt: string) => {
+    if (!prompt.trim()) return;
+
+    try {
+      // Thêm tin nhắn người dùng vào chat trước
+      dispatch(
+        setGroupedChatByDate({
+          date: formatTimestamp(new Date().getTime(), "DD/MM/YYYY"),
+          message: {
+            role: "user",
+            content: prompt,
+            createdAt: new Date().getTime(),
+          },
+        })
+      );
+
+      dispatch(setLoadingSendQuestion(true));
+      setPrompt("");
+
+      const response = await sendMessage({
+        prompt: prompt.trim(),
+        accessToken: session?.user?.accessToken as string,
+      });
+
+      const { status, result } = response || {};
+
+      if (status) {
+        dispatch(
+          setGroupedChatByDate({
+            date: formatTimestamp(
+              result?.message?.createdAt || new Date().getTime(),
+              "DD/MM/YYYY"
+            ),
+            message: result?.message,
+          })
+        );
+      } else {
+        toast.error(response?.message || "Đã có lỗi xảy ra khi gửi câu hỏi");
+      }
+    } catch (error) {
+      toast.error("Đã có lỗi xảy ra khi gửi câu hỏi");
+    } finally {
+      dispatch(setLoadingSendQuestion(false));
+    }
+  };
+
+  const handleCallbackVoiceSearch = (keyword: string) => {
+    setPrompt(keyword);
+    delay(() => handlSendQuestion(keyword), 200);
+  };
+
+  return (
+    <Box
+      onClick={() => textareaRef.current?.focus()}
+      className="w-full border p-4 focus-within:border-white border-[#ffffff10] rounded-2xl focus:border-gray-50"
+    >
+      <Textarea
+        ref={textareaRef}
+        placeholder="Bạn có gì muốn hỏi tôi không?"
+        rows={1}
+        autoFocus
+        resize="none"
+        autoresize
+        size="sm"
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            handlSendQuestion(prompt);
+          }
+        }}
+        value={prompt}
+        onChange={(e) => setPrompt(e.target.value)}
+        maxLength={500}
+        maxH="120px"
+        rounded="none"
+        className="flex-1 border-0 text-white w-full p-0 outline-0 ring-0"
+      />
+      <Box
+        className={`flex items-center justify-between mt-6 ${
+          loadingSendQuestion ? "opacity-50 pointer-events-none" : ""
+        }`}
+      >
+        {groupedChatByDate?.length > 0 ? <ClearChat /> : <Box />}
+        <Box className="flex items-center gap-2">
+          <VoiceButton
+            callback={(keyword: string) => handleCallbackVoiceSearch(keyword)}
+            size="md"
+            rounded="full"
+          />
+          <IconButton
+            size="md"
+            onClick={() => handlSendQuestion(prompt)}
+            disabled={!prompt.trim() || loadingSendQuestion}
+            aria-label="Gửi câu hỏi"
+            className="bg-primary disabled:opacity-50 border-0 linear-gradient hover:opacity-80 text-black"
+            rounded="full"
+          >
+            <IoArrowUp />
+          </IconButton>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+export default ChatComposer;

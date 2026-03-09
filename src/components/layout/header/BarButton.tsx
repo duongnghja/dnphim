@@ -1,0 +1,23 @@
+"use client";
+
+import { setIsOpenDrawer } from "@/store/slices/system.slice";
+import { AppDispatch } from "@/store/store";
+import { IconButton } from "@chakra-ui/react";
+import { HiMiniBars3 } from "react-icons/hi2";
+import { useDispatch } from "react-redux";
+
+const BarButton = () => {
+  const dispatch: AppDispatch = useDispatch();
+
+  return (
+    <IconButton
+      onClick={() => dispatch(setIsOpenDrawer(true))}
+      size="sm"
+      className="bg-transparent xl:hidden flex -ml-2.5 text-white"
+    >
+      <HiMiniBars3 />
+    </IconButton>
+  );
+};
+
+export default BarButton;

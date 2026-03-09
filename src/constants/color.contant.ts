@@ -1,0 +1,284 @@
+export const colorGradients = [
+  "from-rose-700 to-red-600",
+  "from-fuchsia-700 to-pink-500",
+  "from-emerald-700 to-green-500",
+  "from-purple-700 to-violet-500",
+  "from-slate-800 to-slate-600",
+  "from-gray-900 to-gray-700",
+  "from-yellow-700 to-yellow-500",
+  "from-indigo-800 to-indigo-500",
+  "from-blue-800 to-sky-500",
+  "from-teal-700 to-cyan-500",
+  "from-lime-600 to-lime-400",
+  "from-orange-700 to-orange-500",
+  "from-pink-800 to-pink-500",
+  "from-red-900 to-red-600",
+  "from-violet-900 to-purple-600",
+  "from-green-900 to-green-600",
+  "from-cyan-700 to-blue-500",
+  "from-fuchsia-900 to-pink-600",
+  "from-amber-700 to-amber-500",
+  "from-rose-900 to-pink-700",
+  "from-sky-800 to-sky-500",
+  "from-indigo-900 to-indigo-600",
+  "from-stone-800 to-stone-500",
+  "from-zinc-800 to-zinc-600",
+  "from-neutral-800 to-neutral-500",
+  "from-blue-900 to-blue-600",
+  "from-teal-900 to-teal-600",
+  "from-lime-700 to-green-400",
+  "from-yellow-800 to-amber-500",
+  "from-orange-800 to-red-500",
+  "from-rose-600 to-red-400",
+  "from-pink-700 to-pink-400",
+  "from-purple-800 to-fuchsia-500",
+  "from-indigo-800 to-blue-500",
+  "from-blue-700 to-sky-400",
+  "from-sky-600 to-cyan-400",
+  "from-cyan-800 to-teal-500",
+  "from-teal-800 to-emerald-500",
+  "from-emerald-800 to-green-400",
+  "from-green-700 to-lime-400",
+  "from-lime-800 to-yellow-500",
+  "from-yellow-600 to-amber-400",
+  "from-amber-800 to-orange-500",
+  "from-orange-600 to-red-400",
+  "from-red-800 to-rose-500",
+  "from-fuchsia-800 to-pink-600",
+  "from-violet-800 to-purple-500",
+  "from-purple-900 to-indigo-700",
+  "from-indigo-700 to-sky-500",
+  "from-sky-700 to-blue-400",
+  "from-blue-600 to-cyan-300",
+  "from-teal-600 to-emerald-300",
+  "from-emerald-600 to-lime-300",
+  "from-lime-600 to-yellow-300",
+  "from-yellow-500 to-orange-300",
+  "from-orange-500 to-red-300",
+  "from-red-600 to-pink-300",
+  "from-pink-600 to-fuchsia-300",
+  "from-fuchsia-600 to-violet-300",
+  "from-violet-700 to-indigo-400",
+  "from-indigo-600 to-blue-300",
+  "from-cyan-700 to-sky-300",
+  "from-sky-500 to-blue-200",
+  "from-blue-500 to-indigo-200",
+  "from-teal-500 to-cyan-200",
+  "from-emerald-500 to-lime-200",
+  "from-lime-500 to-yellow-200",
+  "from-yellow-400 to-amber-200",
+  "from-orange-400 to-red-200",
+  "from-red-500 to-pink-200",
+  "from-pink-500 to-fuchsia-200",
+  "from-fuchsia-500 to-purple-200",
+  "from-purple-600 to-indigo-300",
+  "from-stone-700 to-stone-400",
+  "from-zinc-700 to-zinc-500",
+  "from-neutral-700 to-neutral-400",
+  "from-gray-800 to-gray-500",
+  "from-slate-700 to-slate-400",
+  "from-amber-600 to-orange-400",
+  "from-lime-500 to-green-300",
+  "from-teal-700 to-emerald-400",
+];
+
+export const topicBackgrounds = [
+  "bg-[rgb(50,79,209)]",
+  "bg-[rgb(102,102,153)]",
+  "bg-[rgb(27,133,108)]",
+  "bg-[rgb(119,97,180)]",
+  "bg-[rgb(205,126,95)]",
+  "bg-[rgb(167,57,57)]",
+  "bg-[rgb(46,50,69)]",
+];
+
+export const colorGradients3 = [
+  "from-teal-700 via-cyan-600 to-emerald-500",
+  "from-purple-700 via-indigo-600 to-violet-500",
+  "from-rose-700 via-pink-600 to-fuchsia-500",
+  "from-blue-800 via-sky-700 to-teal-500",
+  "from-emerald-700 via-lime-600 to-yellow-500",
+  "from-indigo-700 via-purple-600 to-pink-500",
+  "from-fuchsia-700 via-rose-600 to-red-500",
+  "from-sky-700 via-cyan-600 to-teal-500",
+  "from-green-700 via-emerald-600 to-lime-500",
+  "from-purple-800 via-indigo-700 to-blue-500",
+  "from-teal-600 via-cyan-500 to-sky-400",
+  "from-red-700 via-rose-600 to-pink-500",
+  "from-violet-700 via-purple-600 to-indigo-500",
+  "from-lime-700 via-green-600 to-emerald-500",
+  "from-cyan-700 via-sky-600 to-blue-500",
+  "from-pink-700 via-fuchsia-600 to-purple-500",
+  "from-emerald-700 via-teal-600 to-cyan-500",
+  "from-sky-700 via-blue-600 to-indigo-500",
+  "from-indigo-700 via-purple-600 to-fuchsia-500",
+  "from-teal-700 via-green-600 to-lime-500",
+  "from-rose-700 via-pink-600 to-red-500",
+  "from-violet-700 via-indigo-600 to-purple-500",
+  "from-cyan-700 via-teal-600 to-emerald-500",
+  "from-lime-700 via-green-600 to-yellow-500",
+  "from-blue-700 via-sky-600 to-teal-500",
+  "from-purple-700 via-fuchsia-600 to-pink-500",
+  "from-emerald-700 via-lime-600 to-green-500",
+  "from-teal-700 via-cyan-600 to-sky-500",
+  "from-red-700 via-rose-600 to-pink-500",
+  "from-indigo-700 via-blue-600 to-cyan-500",
+  "from-fuchsia-700 via-pink-600 to-purple-500",
+  "from-sky-700 via-cyan-600 to-teal-500",
+  "from-green-700 via-lime-600 to-emerald-500",
+  "from-purple-800 via-indigo-700 to-violet-500",
+  "from-teal-700 via-green-600 to-cyan-500",
+  "from-rose-700 via-red-600 to-pink-500",
+  "from-indigo-700 via-purple-600 to-blue-500",
+  "from-cyan-700 via-sky-600 to-teal-500",
+  "from-lime-700 via-emerald-600 to-green-500",
+  "from-pink-700 via-fuchsia-600 to-purple-500",
+  "from-sky-700 via-blue-600 to-indigo-500",
+  "from-emerald-700 via-teal-600 to-cyan-500",
+  "from-red-700 via-rose-600 to-pink-500",
+  "from-violet-700 via-indigo-600 to-purple-500",
+  "from-teal-700 via-cyan-600 to-emerald-500",
+  "from-purple-700 via-indigo-600 to-violet-500",
+  "from-rose-700 via-pink-600 to-fuchsia-500",
+  "from-blue-700 via-sky-600 to-teal-500",
+  "from-emerald-700 via-lime-600 to-green-500",
+  "from-indigo-700 via-purple-600 to-pink-500",
+  "from-fuchsia-700 via-rose-600 to-red-500",
+  "from-sky-700 via-cyan-600 to-teal-500",
+  "from-green-700 via-emerald-600 to-lime-500",
+];
+
+export const colorGradientsToWhite = [
+  "from-rose-200 to-white",
+  "from-pink-200 to-white",
+  "from-fuchsia-200 to-white",
+  "from-purple-200 to-white",
+  "from-violet-200 to-white",
+  "from-indigo-200 to-white",
+  "from-blue-200 to-white",
+  "from-sky-200 to-white",
+  "from-cyan-200 to-white",
+  "from-teal-200 to-white",
+  "from-emerald-200 to-white",
+  "from-green-200 to-white",
+  "from-lime-200 to-white",
+  "from-yellow-200 to-white",
+  "from-amber-200 to-white",
+  "from-orange-200 to-white",
+  "from-red-200 to-white",
+  "from-stone-200 to-white",
+  "from-slate-200 to-white",
+];
+
+export const topicBackGround = {
+  "hanh-dong": "bg-rose-700",
+  "co-trang": "bg-fuchsia-700",
+  "chien-tranh": "bg-emerald-700",
+  "vien-tuong": "bg-purple-700",
+  "kinh-di": "bg-slate-800",
+  "tai-lieu": "bg-gray-900",
+  "tre-em": "bg-yellow-700",
+  "lich-su": "bg-indigo-800",
+  "bi-an": "bg-blue-800",
+  "tinh-cam": "bg-lime-600",
+  "tam-ly": "bg-orange-700",
+  "the-thao": "bg-pink-800",
+  "phieu-luu": "bg-red-900",
+  "am-nhac": "bg-violet-900",
+  "gia-dinh": "bg-green-900",
+  "hoc-duong": "bg-cyan-700",
+  "hai-huoc": "bg-fuchsia-900",
+  "hinh-su": "bg-amber-700",
+  "vo-thuat": "bg-rose-900",
+  "khoa-hoc": "bg-sky-800",
+  "than-thoai": "bg-indigo-900",
+  "chinh-kich": "bg-stone-800",
+  "kinh-dien": "bg-zinc-800",
+};
+
+export const textBackgrounds = [
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(103, 65, 150) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(247, 161, 11) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(255, 0, 153) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(0, 123, 255) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(0, 200, 83) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(255, 87, 34) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(156, 39, 176) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(63, 81, 181) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(0, 188, 212) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(139, 195, 74) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(255, 193, 7) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(233, 30, 99) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(121, 85, 72) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(96, 125, 139) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(0, 150, 136) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(205, 220, 57) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(244, 67, 54) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(33, 150, 243) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(124, 77, 255) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(255, 111, 0) 130%)",
+  "linear-gradient(235deg, rgb(255, 255, 255) 30%, rgb(3, 169, 244) 130%)",
+];
+
+/*
+  Hướng dẫn hệ thống màu (bắt đầu từ đây)
+
+  Mục đích của phần này:
+  - `colorSystemConfig` chứa danh sách theme màu có `name`, `color` (mã hex)
+    và `label` để hiển thị trong UI (tiếng Việt).
+  - `colorSystemDefault` là màu mặc định được lấy từ phần tử đầu tiên.
+
+  Cách sử dụng:
+  - Khi người dùng chọn theme, app có thể gán attribute `data-theme` lên
+    `html` hoặc `body` (ví dụ `data-theme="AquaWave"`). CSS sẽ đọc các
+    biến màu tương ứng trong `globals.css` để thay đổi giao diện toàn ứng dụng.
+
+  Thêm theme mới:
+  1) Thêm một mục vào `colorSystemConfig`, ví dụ:
+
+     { name: "Sunset", color: "#FF7A7A", label: "Hoàng hôn" }
+
+  2) Thêm CSS trong `globals.css` để định nghĩa các biến của theme đó:
+
+     [data-theme="Sunset"] {
+       --color-primary: #ff7a7a;
+       --bg-primary: #ff7a7a;
+       --border-primary: #ff7a7a;
+       --ring-primary: #ff7a7a;
+       --shadow-primary: #ff7a7a;
+     }
+
+  3) (Tùy chọn) Nếu bạn muốn nút, đường viền hoặc gradient đặc biệt cho theme
+     đó, thêm lớp CSS có selector `[data-theme="Sunset"] .your-class { ... }`.
+
+  Gợi ý kỹ thuật:
+  - Nếu bạn muốn dùng màu với alpha (mức trong suốt), lưu biến RGB kèm theo,
+    ví dụ `--color-primary-rgb: 255,122,122;` rồi dùng `rgba(var(--color-primary-rgb), 0.15)`.
+
+  Về các mảng `colorGradients`, `colorGradients3`, `colorGradientsToWhite`:
+  - Đây là danh sách class utility của Tailwind (ví dụ "from-rose-700 to-red-600")
+    dùng khi tạo gradient bằng cách gán `class="bg-gradient-to-r ${gradient}"`.
+  - `colorGradients3` chứa gradients 3 mầu (from - via - to).
+  - `colorGradientsToWhite` là các gradient chuyển dần về màu trắng.
+
+  Về `topicBackGround` và `textBackgrounds`:
+  - `topicBackGround` map slug chủ đề -> class background của Tailwind.
+    Để thêm chủ đề mới, thêm key slug và giá trị class tương ứng.
+  - `textBackgrounds` là các gradient CSS trực tiếp để áp cho phần tử text nếu
+    cần background gradient tay.
+
+  Lưu ý khi chỉnh sửa:
+  - Giữ tên `name` nhất quán nếu bạn dùng nó để map sang `data-theme` trong HTML.
+  - Cập nhật `label` để hiển thị trong UI (đa ngôn ngữ nếu cần).
+*/
+
+export const colorSystemConfig: ColorSystemConfig[] = [
+  { name: "Default", color: "#ffd875", label: "Mặc định" },
+  { name: "AquaWave", color: "#00B4D8", label: "Sóng nước" },
+  { name: "LavenderDream", color: "#B57EDC", label: "Mơ tím" },
+  { name: "RoseCine", color: "#FF4D6D", label: "Hồng rực rỡ" },
+  { name: "Emerald", color: "#2DD4BF", label: "Ngọc lục bảo" },
+  { name: "CobaltCine", color: "#3B82F6", label: "Xanh coban" },
+];
+
+export const colorSystemDefault = colorSystemConfig[0].color;

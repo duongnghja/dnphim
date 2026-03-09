@@ -1,0 +1,154 @@
+type User = {
+  avatar: string;
+  created_at: string;
+  email: string;
+  gender: Gender;
+  id: string;
+  role: Role;
+  status: Status;
+  type_account: TypeAcccount;
+  username: string;
+};
+
+type Status = "active" | "banned";
+type Role = "admin" | "member";
+type TypeAcccount = "google" | "credentials";
+type Gender = "female" | "male" | "other";
+
+type SearchHistory = {
+  id: string;
+  keyword: string;
+  createdAt: string;
+};
+
+type GetUserProfile = {
+  email: string;
+  typeAccount: "google" | "credentials";
+  accessToken: string;
+};
+
+type UserSlice = {
+  searchHistory: {
+    items: SearchHistory[];
+    loading: boolean;
+    error: boolean;
+    keyword: string;
+    fetched: boolean;
+  };
+  reviews: {
+    items: any;
+    loading: boolean;
+    error: boolean;
+    selectedReview: {
+      id: string | number;
+      emoji: string;
+      text: string;
+      value: number;
+    } | null;
+    reviewContent: string | null;
+  };
+  userMovies: {
+    selectedDeleteMode: boolean;
+    selectedMovieIds: string[];
+  };
+  comments: {
+    items: any;
+    loading: boolean;
+    error: boolean;
+  };
+  report: {
+    reportError: string;
+    reportDescription: string;
+  };
+  avatar: {
+    selectedFilterTabsAvatar: "hoat-hinh" | "meme" | "viet-nam" | "upload";
+  };
+  playlist: {
+    items: any[];
+    playlistIds: string[];
+    refreshMovies: boolean;
+    refreshPlaylists: boolean;
+    selectedPlaylistId: string | null;
+  };
+  movieViewingStatus: {
+    fetched: boolean;
+    currentTime: number;
+    duration: number;
+    finished: boolean;
+    currentEpisode: {
+      episodeId: string;
+      name: string;
+    } | null;
+  };
+  movieRequest: {
+    refreshMovieRequests: boolean;
+  }
+  autoNextEpisode: boolean;
+  cinemaMode: boolean;
+};
+
+type UpdateUserProfile = {
+  userId: string;
+  username: string;
+  gender: "other" | "female" | "male";
+  avatar: string;
+  typeAccount: "credentials" | "google";
+  accessToken: string;
+};
+
+type UpdateUserPassword = {
+  email: string;
+  newPassword: string;
+  oldPassword: string;
+  typeAccount: "credentials";
+  accessToken: string;
+};
+
+type ChangeRoleUser = {
+  userId: string;
+  adminId: string;
+  role: string;
+  accessToken: string;
+};
+
+type ChangeStatusUser = {
+  userId: string;
+  adminId: string;
+  status: "active" | "banned";
+  accessToken: string;
+};
+
+type CreateRoomWatchingTogether = {
+  userId: string;
+  movieData: any;
+  accessToken: string;
+};
+
+type GetListRoomsWatchingTogether = {
+  userId: string;
+  accessToken: string;
+};
+
+type JoinRoomWatchingTogether = {
+  user: any;
+  roomId: string;
+  accessToken: string;
+};
+
+type LeaveRoomWatchingTogether = {
+  userId: string;
+  roomId: string;
+  accessToken: string;
+};
+
+type KickUserOutOfRoomWatchingTogether = {
+  userId: string;
+  roomId: string;
+  roomOwnerId: string;
+  accessToken: string;
+};
+
+type GetRoomDataWatchingTogether = {
+  roomId: string;
+  accessToken: string;
+};

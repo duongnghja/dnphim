@@ -1,0 +1,99 @@
+"use client";
+
+import { Box } from "@chakra-ui/react";
+import { Avatar } from "@/components/ui/avatar";
+import { formatDateUnix } from "@/lib/utils";
+import FeedbackActions from "./FeedbackActions";
+import ReplySection from "./reply/ReplySection";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import FeedbackInput from "./FeedbackInput";
+import Rated from "./review/Rated";
+import "@/assets/css/animation.css";
+import EditFeedback from "./EditFeedback";
+import useScrollToFeedbackCid from "@/hooks/useScrollToFeedbackCid";
+import CommentUserBadge from "../shared/CommentUserBadge";
+import useFeedbackAuthor from "@/hooks/useFeedbackAuthor";
+
+const FeedbackItem = ({ feedback }: FeedbackItemProps) => {
+  const { cid } = useScrollToFeedbackCid({ id: feedback?._id });
+  const { username, avatar, isAnonymous } = useFeedbackAuthor({
+    author: {
+      ...feedback?.author,
+      is_anonymous: feedback.is_anonymous,
+    },
+  });
+  const { feedbackType, feedbackData, idEditFeedback } = useSelector(
+    (state: RootState) => state.feedback
+  );
+  const showFeedbackId = feedbackData.showFeedbackId;
+  const feedbackId = feedback?._id;
+  const isEditing = idEditFeedback === feedbackId;
+
+  return (
+    <Box
+      id={feedbackId}
+      className={`flex gap-4 items-start relative ${
+        feedbackId === cid ? "mine" : ""
+      }`}
+    >
+      <Avatar
+        name={username}
+        src={avatar}
+        className="w-10 h-10"
+        fallback={<Box className="w-10 h-10 bg-gray-200 rounded-full"></Box>}
+      />
+      <Box className="flex-1">
+        <Box className="flex gap-2 items-center mb-1.5 flex-wrap">
+          {feedbackType === "review" && (
+            <Rated point={feedback?.reviews?.point as string} />
+          )}
+
+          <CommentUserBadge
+            isAnonymous={isAnonymous}
+            author={{
+              ...feedback?.author,
+              username: username,
+              is_anonymous: feedback.is_anonymous,
+            }}
+          />
+
+          <span className="text-[10px] text-gray-500 ml-1">
+            {formatDateUnix(feedback?.created_at)}
+          </span>
+        </Box>
+
+        {feedback?.is_spam === 0 ? (
+          <>
+            {!isEditing ? (
+              <span className="text-gray-300 text-xs text-justify break-all">
+                {feedback?.content}
+              </span>
+            ) : (
+              <EditFeedback
+                feedbackId={feedback?._id}
+                defaultValue={feedback?.content}
+              />
+            )}
+
+            <FeedbackActions data={feedback} action="comment" />
+          </>
+        ) : (
+          <span className="text-xs text-gray-400 italic">
+            Nội dung đã ẩn do bị đánh dấu spam.
+          </span>
+        )}
+
+        {showFeedbackId === feedback?._id && (
+          <FeedbackInput action="reply" autoFocus feedback={feedback} />
+        )}
+
+        {feedback?.total_children > 0 && (
+          <ReplySection totalChildren={feedback?.total_children} />
+        )}
+      </Box>
+    </Box>
+  );
+};
+
+export default FeedbackItem;
