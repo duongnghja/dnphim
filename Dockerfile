@@ -1,40 +1,24 @@
-# Stage 1: Base image
-FROM node:18-alpine AS base
+FROM node:lts-alpine AS base
 
-# Stage 2: Install dependencies
+# Stage 1: Install dependencies
 FROM base AS deps
 WORKDIR /app
+COPY package.json pnpm-lock.yaml ./
+RUN corepack enable pnpm && pnpm install --frozen-lockfile
 
-# Copy package.json và package-lock.json (dùng npm)
-COPY package.json package-lock.json ./
-
-# Cài dependencies
-RUN npm ci
-
-# Stage 3: Build application
+# Stage 2: Build the application
 FROM base AS builder
 WORKDIR /app
-
-# Copy node_modules từ stage deps
 COPY --from=deps /app/node_modules ./node_modules
-
-# Copy toàn bộ source code
 COPY . .
+RUN corepack enable pnpm && pnpm run build
 
-# Build Next.js
-RUN npm run build
-
-# Stage 4: Production server
+# Stage 3: Production server
 FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-
-# Copy build output từ stage builder
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
-# Expose port
 EXPOSE 3000
-
-# Command chạy server
 CMD ["node", "server.js"]
